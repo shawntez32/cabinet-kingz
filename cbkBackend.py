@@ -56,13 +56,25 @@ class CurInventory:
         self.succ = succ
 
 class Recipe:
-    pass
+    def __init__(self,name,recipeDict):
+        self.name = name
+        self.recipe = recipeDict
 
 class Paycheck:
-    pass
+    def __init__(self,date,source,amt,taxes):
+        self.date = date
+        self.source = source
+        self.amt = amt
+        self.taxes = taxes
 
 class Budget:
-    pass
+    def __init__(self,income,budgetDict,timeframe):
+        self.income = income
+        self.budget = budgetDict
+        self.tf = timeframe
 
 class Goal:
-    pass
+    def __init__(self,price,importance,goalDate):
+        self.price = price
+        self.imp = importance
+        self.gDate = goalDate
