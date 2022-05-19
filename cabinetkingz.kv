@@ -1,0 +1,121 @@
+#:import utils kivy.utils
+#:import hex kivy.utils.get_color_from_hex
+#:import Factory kivy.factory.Factory
+# {Primary: '10316B',Secondary: '000000',3rd: 'E25822',Fourth: 'ECECEB'}
+
+<Header@Label>:
+    font_size:22
+    color: 1,0,0,1
+    canvas.before:
+        Color:
+            rgb: hex('#fff')
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+<PC@GridLayout>:
+    canvas.before:
+        Color:
+            rgb: hex('#A0BCC2')
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+<SC@GridLayout>:
+    canvas.before:
+        Color:
+            rgb: hex('#D8E3E7')
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+<SideButton@Button>:
+    size_hint_y:None
+    height:50
+    background_color: hex('#9AD0EC')
+
+Manager:
+    HomePage:
+
+<HomePage>:
+    name: 'hp'
+
+    PC:
+        cols:3
+
+        #Side Cushion
+        GridLayout:
+            cols:1
+            rows:2
+            size_hint_x:0.15
+
+            GridLayout:
+                cols:1
+                size_hint_y:0.2
+
+            GridLayout:
+                cols:1
+                size_hint_y:0.8
+
+                SideButton:
+                    text:'Budget'
+
+                SideButton:
+                    text:'Expenses'
+
+                SideButton:
+                    text:'Current Inventory'
+
+                SideButton:
+                    text:'Grocery List'
+
+                SideButton:
+                    text:'Goals'
+
+
+
+        #Middle Cushion
+        SC:
+            canvas.before:
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+                    source: "images/cblogo.jpg"
+            cols:1
+            rows:3
+
+            GridLayout:
+                size_hint_y:0.2
+
+
+
+            InventoryList:
+                size_hint_y:0.6
+                canvas.before:
+                    Color:
+                        rgb: hex('#ECECEB')
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+
+            GridLayout:
+                cols:1
+                size_hint_y:0.2
+
+                Label:
+                    size_hint_y:0.2
+                    size_hint_x:0.4
+                    canvas.before:
+                        Color:
+                            rgb: hex('#A0BCC2')
+                        Rectangle:
+                            pos: self.pos
+                            size: self.size
+                    text:'Submit'
+
+                Label:
+                    text:'.'
+
+        GridLayout:
+            cols:1
+            size_hint_x:0.15
